@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Export Logo</title>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="800"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Create SVG with transparent background
+        const svg = `
+        <svg width="800" height="800" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M60 10C45 25 35 50 35 80C35 95 40 108 48 118L95 85L70 120L85 125C95 128 105 130 115 130C145 130 170 105 170 75C170 45 155 20 135 8L105 55L125 25C115 20 103 18 90 18C77 18 67 13 60 10Z"
+                fill="url(#voltera_gradient_left)"
+            />
+            <path
+                d="M140 190C155 175 165 150 165 120C165 105 160 92 152 82L105 115L130 80L115 75C105 72 95 70 85 70C55 70 30 95 30 125C30 155 45 180 65 192L95 145L75 175C85 180 97 182 110 182C123 182 133 187 140 190Z"
+                fill="url(#voltera_gradient_right)"
+            />
+            <defs>
+                <linearGradient id="voltera_gradient_left" x1="60" y1="10" x2="170" y2="130" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#d4f587" />
+                    <stop offset="0.6" stop-color="#bcf26d" />
+                    <stop offset="1" stop-color="#9ed655" />
+                </linearGradient>
+                <linearGradient id="voltera_gradient_right" x1="140" y1="190" x2="30" y2="70" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#bcf26d" />
+                    <stop offset="0.5" stop-color="#a8de5a" />
+                    <stop offset="1" stop-color="#8cc748" />
+                </linearGradient>
+            </defs>
+        </svg>`;
+        
+        const img = new Image();
+        const blob = new Blob([svg], { type: 'image/svg+xml' });
+        const url = URL.createObjectURL(blob);
+        
+        img.onload = function() {
+            ctx.drawImage(img, 0, 0);
+            canvas.toBlob(function(blob) {
+                const link = document.createElement('a');
+                link.download = 'voltera-logo-transparent.png';
+                link.href = URL.createObjectURL(blob);
+                link.click();
+            }, 'image/png');
+        };
+        
+        img.src = url;
+    </script>
+</body>
+</html>
