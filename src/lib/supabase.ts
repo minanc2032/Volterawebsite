@@ -3,11 +3,9 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase environment variables');
-}
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+export const supabase = supabaseUrl && supabaseAnonKey
+  ? createClient(supabaseUrl, supabaseAnonKey)
+  : null;
 
 export interface Lead {
   id?: string;
@@ -130,16 +128,20 @@ export interface NewsletterSignup {
 }
 
 export async function createLead(lead: Lead): Promise<{ data: Lead | null; error: any }> {
+  if (!supabase) return { data: null, error: new Error('Supabase not configured') };
   return await supabase.from('leads').insert(lead).select().single();
 }
 
 export async function createCalculatorSubmission(
   submission: CalculatorSubmission
 ): Promise<{ data: CalculatorSubmission | null; error: any }> {
+  if (!supabase) return { data: null, error: new Error('Supabase not configured') };
   return await supabase.from('calculator_submissions').insert(submission).select().single();
 }
 
 export async function getPublishedArticles(categorySlug?: string) {
+  if (!supabase) return { data: [], error: new Error('Supabase not configured') };
+
   let query = supabase
     .from('blog_articles')
     .select('*, category:blog_categories(*)')
@@ -151,7 +153,7 @@ export async function getPublishedArticles(categorySlug?: string) {
       .from('blog_categories')
       .select('id')
       .eq('slug', categorySlug)
-      .single();
+      .maybeSingle();
 
     if (category) {
       query = query.eq('category_id', category.id);
@@ -162,6 +164,7 @@ export async function getPublishedArticles(categorySlug?: string) {
 }
 
 export async function getArticleBySlug(slug: string) {
+  if (!supabase) return { data: null, error: new Error('Supabase not configured') };
   return await supabase
     .from('blog_articles')
     .select('*, category:blog_categories(*)')
@@ -171,10 +174,12 @@ export async function getArticleBySlug(slug: string) {
 }
 
 export async function getCategories() {
+  if (!supabase) return { data: [], error: new Error('Supabase not configured') };
   return await supabase.from('blog_categories').select('*').order('name');
 }
 
 export async function getFeaturedTestimonials(limit = 6) {
+  if (!supabase) return { data: [], error: new Error('Supabase not configured') };
   return await supabase
     .from('testimonials')
     .select('*')
@@ -185,6 +190,7 @@ export async function getFeaturedTestimonials(limit = 6) {
 }
 
 export async function getPublishedCaseStudies() {
+  if (!supabase) return { data: [], error: new Error('Supabase not configured') };
   return await supabase
     .from('case_studies')
     .select('*')
@@ -193,6 +199,7 @@ export async function getPublishedCaseStudies() {
 }
 
 export async function getActiveSubsidies() {
+  if (!supabase) return { data: [], error: new Error('Supabase not configured') };
   return await supabase
     .from('subsidies')
     .select('*')
@@ -201,10 +208,12 @@ export async function getActiveSubsidies() {
 }
 
 export async function submitContactForm(contact: ContactSubmission) {
+  if (!supabase) return { data: null, error: new Error('Supabase not configured') };
   return await supabase.from('contact_submissions').insert(contact).select().single();
 }
 
 export async function subscribeNewsletter(email: string) {
+  if (!supabase) return { data: null, error: new Error('Supabase not configured') };
   return await supabase
     .from('newsletter_signups')
     .upsert({ email, subscribed: true, subscribed_at: new Date().toISOString() })
