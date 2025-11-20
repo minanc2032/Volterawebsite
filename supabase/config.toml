@@ -1,0 +1,1 @@
+{"$schema":"https://supabase.com/schemas/config.json","api":{"enabled":true},"db":{"pooler":{"enabled":false}}}
