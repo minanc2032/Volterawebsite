@@ -22,19 +22,15 @@ export interface Lead {
 
 export interface CalculatorSubmission {
   id?: string;
-  lead_id?: string;
-  woning_type?: string;
-  bouwjaar?: number;
-  verbruik_kwh?: number;
-  gasverbruik_m3?: number;
-  zonnepanelen_interesse?: boolean;
-  batterij_interesse?: boolean;
-  warmtepomp_interesse?: boolean;
-  aantal_panelen?: number;
-  jaarbesparing_euro?: number;
-  investering_euro?: number;
-  terugverdientijd_jaar?: number;
-  subsidy_amount?: number;
+  house_type?: string;
+  roof_type?: string;
+  annual_usage?: number;
+  interested_in_solar?: boolean;
+  interested_in_battery?: boolean;
+  interested_in_heatpump?: boolean;
+  name?: string;
+  email?: string;
+  phone?: string;
   created_at?: string;
 }
 
