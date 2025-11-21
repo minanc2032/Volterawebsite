@@ -92,33 +92,6 @@ export default function ProductSections() {
             />
           </div>
         </div>
-
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1 relative">
-            <img
-              src="/images/WhatsApp Image 2025-11-12 at 23.46.22 copy.jpeg"
-              alt="Airco"
-              className="rounded-[2rem] shadow-lg w-full object-cover"
-            />
-          </div>
-          <div className="order-1 lg:order-2">
-            <div className="inline-flex items-center gap-2 text-[15px] text-[#000000] mb-4">
-              <img src="/icons/WhatsApp Image 2025-11-11 at 13.52.13 (4).jpeg" alt="" className="w-7 h-7 animate-spin-slow" />
-            <span className="font-bold">Efficiënte Koeling, Maximale Efficiëntie</span>
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-black text-[#000000] mb-4">
-              De <span className="text-[#00bcd4]">AirCo</span>:
-              <br />
-              Die begrijpt wat jij nodig hebt
-            </h2>
-            <p className="text-base text-[#555555] leading-relaxed mb-6">
-              Onze energiezuinige airco´s zorgen het hele jaar door voor een aangenaam binnenklimaat. Ze koelen niet alleen in de zomer, maar bieden ook energie-efficiënt warmte in de winter. Door de automatische aanpassing van de energiebehoefte beheren ze ook gebruik, de productie van het koelen verbruikt het minste mogelijk. Daarom klimaat temperatuursaangeving op de luchtstroom voortdurend, je wilt nimmer meer geluiden en de perfecte temperatuur.
-            </p>
-            <button className="bg-[#aadd5f] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#99cc4f] transition-all duration-200">
-              Meer over Airco
-            </button>
-          </div>
-        </div>
       </div>
     </section>
   );
