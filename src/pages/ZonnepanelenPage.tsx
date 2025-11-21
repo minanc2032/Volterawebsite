@@ -1,4 +1,5 @@
-import PlaceholderPage from './PlaceholderPage';
+import SolutionPage from '../components/SolutionPage';
+
 export default function ZonnepanelenPage() {
-  return <PlaceholderPage title="Zonnepanelen" description="Ontdek alles over onze hoogwaardige zonnepanelen" comingSoon />;
+  return <SolutionPage type="solar" />;
 }

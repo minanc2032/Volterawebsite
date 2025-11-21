@@ -1,4 +1,5 @@
-import PlaceholderPage from './PlaceholderPage';
+import SolutionPage from '../components/SolutionPage';
+
 export default function WarmtepompenPage() {
-  return <PlaceholderPage title="Warmtepompen" description="Duurzaam verwarmen en koelen met een warmtepomp" comingSoon />;
+  return <SolutionPage type="heatpump" />;
 }
