@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Check, Shield, Award, Users } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import Hero from '../components/Hero';
+import TrustedByLogos from '../components/TrustedByLogos';
 import IntroSection from '../components/IntroSection';
 import ProductSections from '../components/ProductSections';
 import Testimonials from '../components/Testimonials';
@@ -33,11 +34,6 @@ export default function HomePage() {
       step: '3',
       title: 'Volledige installatie geregeld',
       description: 'Onze gecertificeerde installateurs zorgen voor een vlekkeloze installatie bij jou thuis.'
-    },
-    {
-      step: '4',
-      title: 'Geniet van je besparing',
-      description: 'Begin direct met besparen en draag bij aan een duurzamere toekomst.'
     }
   ];
 
@@ -50,6 +46,7 @@ export default function HomePage() {
       />
 
       <Hero />
+      <TrustedByLogos />
 
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,7 +73,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {howItWorks.map((item, index) => (
               <div key={index} className="text-center">
                 <div className="w-16 h-16 bg-[#aadd5f] text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">

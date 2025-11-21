@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <rect x="10" y="10" width="40" height="40" rx="4" fill="#003D7A"/>
+  <path d="M25 20h10v20h-10z" fill="#00A3E0"/>
+  <path d="M30 25l8 7.5-8 7.5z" fill="#FFFFFF"/>
+  <text x="60" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#003D7A">InstallQ</text>
+  <text x="60" y="48" font-family="Arial, sans-serif" font-size="10" fill="#666666">Gecertificeerd Installateur</text>
+</svg>
