@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Sun, Zap, Snowflake } from 'lucide-react';
 
 export default function ProductSections() {
@@ -19,9 +20,11 @@ export default function ProductSections() {
             <p className="text-base text-[#555555] leading-relaxed mb-6">
               Met zonnepanelen van Voltera wek je zelf groene energie op én bespaar je direct op je energierekening. Onze panelen zijn van de hoogste kwaliteit en worden vakkundig geïnstalleerd door gecertificeerde monteurs. Ook zonder salderingsregeling blijven ze rendabel. Dankzij slimme omvormers en integratie met onze thuisbatterij haal je altijd het maximale uit de zon.
             </p>
-            <button className="bg-[#aadd5f] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#99cc4f] transition-all duration-200">
-              Meer over Zonnepanelen
-            </button>
+            <Link to="/zonnepanelen">
+              <button className="bg-[#aadd5f] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#99cc4f] transition-all duration-200">
+                Meer over Zonnepanelen
+              </button>
+            </Link>
           </div>
           <div className="relative">
             <img
@@ -53,9 +56,11 @@ export default function ProductSections() {
             <p className="text-base text-[#555555] leading-relaxed mb-6">
               Met een Voltera-thuisbatterij gebruik je je eigen zonne-energie precies wanneer jij die nodig hebt. Zo verlaag je je energiekosten en word je minder afhankelijk van het net. De batterij laadt automatisch op als de zon schijnt en levert stroom terug als de tarieven hoog zijn. Dat maakt hem niet alleen slim, maar ook winstgevend. Maak je klaar voor een zelfvoorzienende toekomst.
             </p>
-            <button className="bg-[#aadd5f] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#99cc4f] transition-all duration-200">
-              Meer over Thuisbatterij
-            </button>
+            <Link to="/thuisbatterijen">
+              <button className="bg-[#aadd5f] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#99cc4f] transition-all duration-200">
+                Meer over Thuisbatterij
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -73,9 +78,11 @@ export default function ProductSections() {
             <p className="text-base text-[#555555] leading-relaxed mb-6">
               Met een hybride warmtepomp van Voltera verlaag je je gasverbruik tot wel <strong>70%</strong>. Hij werkt samen met je cv-ketel, maar gebruikt stroom als dat goedkoper en duurzamer is. Onze warmtepompen zijn fluisterstil, efficiënt en passen in vrijwel iedere woning. Zo geniet je van een comfortabel binnenklimaat én een <strong>lagere energierekening</strong> – zonder in te leveren op warmte. Zo geniet je van een comfortabel binnenklimaat én een lagere energierekening – zonder in te leveren op warmte Hij werkt samen met je cv-ketel, maar gebruikt stroom als dat goedkoper en duurzamer is.
             </p>
-            <button className="bg-[#aadd5f] text-white px-8 py-3.5 rounded-full font-semibold hover:bg-[#99cc4f] transition-all duration-200">
-              Meer over Warmtepomp
-            </button>
+            <Link to="/warmtepompen">
+              <button className="bg-[#aadd5f] text-white px-8 py-3.5 rounded-full font-semibold hover:bg-[#99cc4f] transition-all duration-200">
+                Meer over Warmtepomp
+              </button>
+            </Link>
           </div>
           <div className="relative">
             <img
