@@ -13,7 +13,9 @@ export default function Hero() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 pt-24">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Slim verduurzamen begint bij Voltera
+           DUURZAAM
+WONEN
+ZONDER ZORGEN
           </h1>
 
           <p className="text-xl sm:text-2xl text-white mb-10 leading-relaxed">
