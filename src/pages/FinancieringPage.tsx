@@ -13,7 +13,7 @@ export default function FinancieringPage() {
         description="Ontdek de verschillende financieringsmogelijkheden voor verduurzaming van je woning. Van Warmtefonds tot groene hypotheek."
       />
 
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white pt-20">
         <section className="py-20 bg-blue-50/50">
           <div className="container mx-auto px-4 text-center max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-blue-950">

@@ -47,6 +47,7 @@ export default function ContactPage() {
         phone: '',
         subject: '',
         message: '',
+        requestCallback: false,
       });
     }, 3000);
   };
@@ -58,7 +59,7 @@ export default function ContactPage() {
         description="Neem contact met ons op. We helpen je graag verder met al je vragen over zonnepanelen, thuisbatterijen en warmtepompen."
       />
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gray-50 pt-20">
         <section className="py-20 bg-[#aadd5f] text-white">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact</h1>

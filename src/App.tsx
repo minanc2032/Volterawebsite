@@ -43,15 +43,15 @@ function App() {
               <Route path="/thuisbatterijen" element={<ThuisbatterijenPage />} />
               <Route path="/warmtepompen" element={<WarmtepompenPage />} />
               <Route path="/financiering" element={<FinancieringPage />} />
-              <Route path="/calculator" element={<CalculatorPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              {/* <Route path="/calculator" element={<CalculatorPage />} />
               <Route path="/klantcases" element={<KlantcasesPage />} />
               <Route path="/kenniscentrum" element={<KenniscentrumPage />} />
               <Route path="/kenniscentrum/:slug" element={<ArticlePage />} />
               <Route path="/subsidies" element={<SubsidiesPage />} />
-              <Route path="/contact" element={<ContactPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/cookies" element={<CookiesPage />} />
-              <Route path="/algemene-voorwaarden" element={<TermsPage />} />
+              <Route path="/algemene-voorwaarden" element={<TermsPage />} /> */}
             </Routes>
           </Suspense>
         </main>

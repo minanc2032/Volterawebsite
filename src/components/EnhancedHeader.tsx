@@ -19,6 +19,25 @@ export default function EnhancedHeader() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const forceScrolledRoutes = [
+    '/financiering',
+    '/calculator',
+    '/privacy',
+    '/cookies',
+    '/algemene-voorwaarden',
+    '/subsidies',
+    '/over-voltera',
+    '/zonnepanelen',
+    '/thuisbatterijen',
+    '/warmtepompen',
+    '/klantcases',
+    '/kenniscentrum',
+    '/contact'
+  ];
+
+  const isForceScrolled = forceScrolledRoutes.includes(location.pathname);
+  const shouldShowScrolled = isScrolled || isForceScrolled;
+
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setActiveDropdown(null);
@@ -48,17 +67,16 @@ export default function EnhancedHeader() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ease-in-out ${
-        isScrolled
-          ? 'bg-white shadow-md'
-          : 'bg-gradient-to-b from-black/40 to-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ease-in-out ${shouldShowScrolled
+        ? 'bg-white shadow-md'
+        : 'bg-gradient-to-b from-black/40 to-transparent'
+        }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center z-10">
             <img
-              src={isScrolled ? '/icons/Voltera_black.png' : '/icons/Voltera white.png'}
+              src={shouldShowScrolled ? '/icons/Voltera_black.png' : '/icons/Voltera white.png'}
               alt="Voltera"
               className="h-12 w-36 object-contain transition-opacity duration-200"
             />
@@ -71,31 +89,31 @@ export default function EnhancedHeader() {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button
-                className={`transition-all duration-200 text-[15px] font-medium flex items-center gap-1 hover:opacity-80 ${
-                  isScrolled
-                    ? `text-gray-900 ${isActiveDropdown(productLinks.map(l => l.to)) ? 'text-[#aadd5f]' : ''}`
-                    : `text-white ${isActiveDropdown(productLinks.map(l => l.to)) ? 'text-[#aadd5f]' : ''}`
-                }`}
+                className={`transition-all duration-200 text-[15px] font-medium flex items-center gap-1 hover:opacity-80 ${shouldShowScrolled
+                  ? `text-gray-900 ${isActiveDropdown(productLinks.map(l => l.to)) ? 'text-[#aadd5f]' : ''}`
+                  : `text-white ${isActiveDropdown(productLinks.map(l => l.to)) ? 'text-[#aadd5f]' : ''}`
+                  }`}
               >
                 Producten
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'products' ? 'rotate-180' : ''}`} />
               </button>
 
               {activeDropdown === 'products' && (
-                <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl py-2 min-w-[200px] border border-gray-100 animate-fadeIn">
-                  {productLinks.map((link) => (
-                    <Link
-                      key={link.to}
-                      to={link.to}
-                      className={`block px-4 py-2.5 text-sm font-medium transition-colors ${
-                        isActivePath(link.to)
+                <div className="absolute top-full left-0 pt-2">
+                  <div className="bg-white rounded-lg shadow-xl py-2 min-w-[200px] border border-gray-100 animate-fadeIn">
+                    {productLinks.map((link) => (
+                      <Link
+                        key={link.to}
+                        to={link.to}
+                        className={`block px-4 py-2.5 text-sm font-medium transition-colors ${isActivePath(link.to)
                           ? 'text-[#aadd5f] bg-gray-50'
                           : 'text-gray-700 hover:bg-gray-50 hover:text-[#aadd5f]'
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                          }`}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
@@ -106,75 +124,71 @@ export default function EnhancedHeader() {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button
-                className={`transition-all duration-200 text-[15px] font-medium flex items-center gap-1 hover:opacity-80 ${
-                  isScrolled
-                    ? `text-gray-900 ${isActiveDropdown(infoLinks.map(l => l.to)) ? 'text-[#aadd5f]' : ''}`
-                    : `text-white ${isActiveDropdown(infoLinks.map(l => l.to)) ? 'text-[#aadd5f]' : ''}`
-                }`}
+                className={`transition-all duration-200 text-[15px] font-medium flex items-center gap-1 hover:opacity-80 ${shouldShowScrolled
+                  ? `text-gray-900 ${isActiveDropdown(infoLinks.map(l => l.to)) ? 'text-[#aadd5f]' : ''}`
+                  : `text-white ${isActiveDropdown(infoLinks.map(l => l.to)) ? 'text-[#aadd5f]' : ''}`
+                  }`}
               >
                 Informatie
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'info' ? 'rotate-180' : ''}`} />
               </button>
 
               {activeDropdown === 'info' && (
-                <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl py-2 min-w-[200px] border border-gray-100 animate-fadeIn">
-                  {infoLinks.map((link) => (
-                    <Link
-                      key={link.to}
-                      to={link.to}
-                      className={`block px-4 py-2.5 text-sm font-medium transition-colors ${
-                        isActivePath(link.to)
+                <div className="absolute top-full left-0 pt-2">
+                  <div className="bg-white rounded-lg shadow-xl py-2 min-w-[200px] border border-gray-100 animate-fadeIn">
+                    {infoLinks.map((link) => (
+                      <Link
+                        key={link.to}
+                        to={link.to}
+                        className={`block px-4 py-2.5 text-sm font-medium transition-colors ${isActivePath(link.to)
                           ? 'text-[#aadd5f] bg-gray-50'
                           : 'text-gray-700 hover:bg-gray-50 hover:text-[#aadd5f]'
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                          }`}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
 
             <Link
               to="/calculator"
-              className={`transition-all duration-200 text-[15px] font-medium hover:opacity-80 ${
-                isScrolled
-                  ? `text-gray-900 ${isActivePath('/calculator') ? 'text-[#aadd5f]' : ''}`
-                  : `text-white ${isActivePath('/calculator') ? 'text-[#aadd5f]' : ''}`
-              }`}
+              className={`transition-all duration-200 text-[15px] font-medium hover:opacity-80 ${shouldShowScrolled
+                ? `text-gray-900 ${isActivePath('/calculator') ? 'text-[#aadd5f]' : ''}`
+                : `text-white ${isActivePath('/calculator') ? 'text-[#aadd5f]' : ''}`
+                }`}
             >
               Bespaarplan
             </Link>
 
             <Link
               to="/financiering"
-              className={`transition-all duration-200 text-[15px] font-medium hover:opacity-80 ${
-                isScrolled
-                  ? `text-gray-900 ${isActivePath('/financiering') ? 'text-[#aadd5f]' : ''}`
-                  : `text-white ${isActivePath('/financiering') ? 'text-[#aadd5f]' : ''}`
-              }`}
+              className={`transition-all duration-200 text-[15px] font-medium hover:opacity-80 ${shouldShowScrolled
+                ? `text-gray-900 ${isActivePath('/financiering') ? 'text-[#aadd5f]' : ''}`
+                : `text-white ${isActivePath('/financiering') ? 'text-[#aadd5f]' : ''}`
+                }`}
             >
               Financiering
             </Link>
 
             <Link
               to="/subsidies"
-              className={`transition-all duration-200 text-[15px] font-medium hover:opacity-80 ${
-                isScrolled
-                  ? `text-gray-900 ${isActivePath('/subsidies') ? 'text-[#aadd5f]' : ''}`
-                  : `text-white ${isActivePath('/subsidies') ? 'text-[#aadd5f]' : ''}`
-              }`}
+              className={`transition-all duration-200 text-[15px] font-medium hover:opacity-80 ${shouldShowScrolled
+                ? `text-gray-900 ${isActivePath('/subsidies') ? 'text-[#aadd5f]' : ''}`
+                : `text-white ${isActivePath('/subsidies') ? 'text-[#aadd5f]' : ''}`
+                }`}
             >
               Subsidies
             </Link>
 
             <Link
               to="/contact"
-              className={`transition-all duration-200 text-[15px] font-medium hover:opacity-80 ${
-                isScrolled
-                  ? `text-gray-900 ${isActivePath('/contact') ? 'text-[#aadd5f]' : ''}`
-                  : `text-white ${isActivePath('/contact') ? 'text-[#aadd5f]' : ''}`
-              }`}
+              className={`transition-all duration-200 text-[15px] font-medium hover:opacity-80 ${shouldShowScrolled
+                ? `text-gray-900 ${isActivePath('/contact') ? 'text-[#aadd5f]' : ''}`
+                : `text-white ${isActivePath('/contact') ? 'text-[#aadd5f]' : ''}`
+                }`}
             >
               Contact
             </Link>
@@ -191,9 +205,8 @@ export default function EnhancedHeader() {
           </div>
 
           <button
-            className={`lg:hidden transition-colors duration-200 z-10 p-2 ${
-              isScrolled ? 'text-gray-900' : 'text-white'
-            }`}
+            className={`lg:hidden transition-colors duration-200 z-10 p-2 ${shouldShowScrolled ? 'text-gray-900' : 'text-white'
+              }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -219,11 +232,10 @@ export default function EnhancedHeader() {
                     <Link
                       key={link.to}
                       to={link.to}
-                      className={`block py-2.5 px-3 rounded-lg transition-colors text-sm ${
-                        isActivePath(link.to)
-                          ? 'text-[#aadd5f] bg-gray-50 font-medium'
-                          : 'text-gray-700 hover:bg-gray-50 hover:text-[#aadd5f]'
-                      }`}
+                      className={`block py-2.5 px-3 rounded-lg transition-colors text-sm ${isActivePath(link.to)
+                        ? 'text-[#aadd5f] bg-gray-50 font-medium'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-[#aadd5f]'
+                        }`}
                     >
                       {link.label}
                     </Link>
@@ -246,11 +258,10 @@ export default function EnhancedHeader() {
                     <Link
                       key={link.to}
                       to={link.to}
-                      className={`block py-2.5 px-3 rounded-lg transition-colors text-sm ${
-                        isActivePath(link.to)
-                          ? 'text-[#aadd5f] bg-gray-50 font-medium'
-                          : 'text-gray-700 hover:bg-gray-50 hover:text-[#aadd5f]'
-                      }`}
+                      className={`block py-2.5 px-3 rounded-lg transition-colors text-sm ${isActivePath(link.to)
+                        ? 'text-[#aadd5f] bg-gray-50 font-medium'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-[#aadd5f]'
+                        }`}
                     >
                       {link.label}
                     </Link>
@@ -261,41 +272,37 @@ export default function EnhancedHeader() {
 
             <Link
               to="/calculator"
-              className={`block py-3 px-2 rounded-lg transition-colors text-sm ${
-                isActivePath('/calculator')
-                  ? 'text-[#aadd5f] bg-gray-50 font-semibold'
-                  : 'text-gray-900 hover:bg-gray-50 hover:text-[#aadd5f] font-medium'
-              }`}
+              className={`block py-3 px-2 rounded-lg transition-colors text-sm ${isActivePath('/calculator')
+                ? 'text-[#aadd5f] bg-gray-50 font-semibold'
+                : 'text-gray-900 hover:bg-gray-50 hover:text-[#aadd5f] font-medium'
+                }`}
             >
               Bespaarplan
             </Link>
             <Link
               to="/financiering"
-              className={`block py-3 px-2 rounded-lg transition-colors text-sm ${
-                isActivePath('/financiering')
-                  ? 'text-[#aadd5f] bg-gray-50 font-semibold'
-                  : 'text-gray-900 hover:bg-gray-50 hover:text-[#aadd5f] font-medium'
-              }`}
+              className={`block py-3 px-2 rounded-lg transition-colors text-sm ${isActivePath('/financiering')
+                ? 'text-[#aadd5f] bg-gray-50 font-semibold'
+                : 'text-gray-900 hover:bg-gray-50 hover:text-[#aadd5f] font-medium'
+                }`}
             >
               Financiering
             </Link>
             <Link
               to="/subsidies"
-              className={`block py-3 px-2 rounded-lg transition-colors text-sm ${
-                isActivePath('/subsidies')
-                  ? 'text-[#aadd5f] bg-gray-50 font-semibold'
-                  : 'text-gray-900 hover:bg-gray-50 hover:text-[#aadd5f] font-medium'
-              }`}
+              className={`block py-3 px-2 rounded-lg transition-colors text-sm ${isActivePath('/subsidies')
+                ? 'text-[#aadd5f] bg-gray-50 font-semibold'
+                : 'text-gray-900 hover:bg-gray-50 hover:text-[#aadd5f] font-medium'
+                }`}
             >
               Subsidies
             </Link>
             <Link
               to="/contact"
-              className={`block py-3 px-2 rounded-lg transition-colors text-sm ${
-                isActivePath('/contact')
-                  ? 'text-[#aadd5f] bg-gray-50 font-semibold'
-                  : 'text-gray-900 hover:bg-gray-50 hover:text-[#aadd5f] font-medium'
-              }`}
+              className={`block py-3 px-2 rounded-lg transition-colors text-sm ${isActivePath('/contact')
+                ? 'text-[#aadd5f] bg-gray-50 font-semibold'
+                : 'text-gray-900 hover:bg-gray-50 hover:text-[#aadd5f] font-medium'
+                }`}
             >
               Contact
             </Link>
