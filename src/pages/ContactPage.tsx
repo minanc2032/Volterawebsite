@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Phone, Mail, Clock, Check } from 'lucide-react';
+import { Phone, Mail, Clock, Check, MessageCircle } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
 import { Input } from '../components/ui/Input';
@@ -15,6 +15,7 @@ export default function ContactPage() {
     phone: '',
     subject: '',
     message: '',
+    requestCallback: false,
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -111,14 +112,37 @@ export default function ContactPage() {
                     <p className="text-gray-600">Za: 10:00 - 16:00</p>
                   </div>
                 </Card>
+
+                <a
+                  href="https://wa.me/31201234567?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20verduurzaming"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <Card className="shadow-lg p-6 flex items-start gap-4 bg-white hover:bg-[#aadd5f]/5 transition-colors cursor-pointer">
+                    <div className="bg-green-100 p-3 rounded-lg text-green-600">
+                      <MessageCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg text-gray-900">WhatsApp</h3>
+                      <p className="text-gray-600 mb-2">Direct chatten?</p>
+                      <span className="text-green-600 font-bold text-lg hover:underline">
+                        Start gesprek
+                      </span>
+                    </div>
+                  </Card>
+                </a>
               </div>
 
               <div className="lg:col-span-2">
                 <Card className="shadow-xl h-full bg-white">
                   <div className="p-8">
-                    <h2 className="text-2xl font-bold mb-6 text-gray-900">
+                    <h2 className="text-2xl font-bold mb-2 text-gray-900">
                       Stuur ons een bericht
                     </h2>
+                    <p className="text-gray-600 mb-6">
+                      Plan direct een gesprek met een adviseur. We nemen binnen 24 uur contact op.
+                    </p>
 
                     {success && (
                       <div className="mb-6 bg-green-50 border border-green-200 rounded-lg p-4 flex items-start gap-3">
@@ -203,6 +227,27 @@ export default function ContactPage() {
                           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                           required
                         />
+                      </div>
+
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <label className="flex items-start gap-3 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={formData.requestCallback}
+                            onChange={(e) =>
+                              setFormData({ ...formData, requestCallback: e.target.checked })
+                            }
+                            className="mt-1 w-4 h-4 text-[#aadd5f] rounded focus:ring-[#aadd5f]"
+                          />
+                          <div className="flex-1">
+                            <span className="text-sm font-medium text-gray-900">
+                              Ik wil graag teruggebeld worden
+                            </span>
+                            <p className="text-xs text-gray-600 mt-1">
+                              Een van onze adviseurs belt je binnen 24 uur op het opgegeven nummer.
+                            </p>
+                          </div>
+                        </label>
                       </div>
 
                       <Button type="submit" size="lg" className="w-full md:w-auto" disabled={loading}>

@@ -142,6 +142,43 @@ function SolarContent() {
           </div>
         </div>
       </section>
+
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Merken waar we mee werken</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              We kiezen alleen voor A-merken met bewezen kwaliteit en uitstekende garanties.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="bg-gray-50 rounded-xl p-6 text-center">
+              <div className="h-20 flex items-center justify-center mb-4">
+                <div className="text-2xl font-bold text-gray-800">JA Solar</div>
+              </div>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                N-Type TopCon technologie met hoog rendement. Marktleider in kwaliteit en innovatie.
+              </p>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-6 text-center">
+              <div className="h-20 flex items-center justify-center mb-4">
+                <div className="text-2xl font-bold text-gray-800">Longi</div>
+              </div>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Premium glas-glas panelen met 25 jaar productgarantie. Excellent in Nederlandse weersomstandigheden.
+              </p>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-6 text-center">
+              <div className="h-20 flex items-center justify-center mb-4">
+                <div className="text-2xl font-bold text-gray-800">SolarEdge</div>
+              </div>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Slimme omvormers met panel-niveau monitoring. Maximale opbrengst per paneel.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
@@ -191,6 +228,48 @@ function BatteryContent() {
         </div>
       </section>
 
+      <section className="bg-blue-50 py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-blue-900 mb-4">Saldering wordt afgebouwd</h2>
+            <p className="text-xl text-blue-800 max-w-3xl mx-auto">
+              Tot 2027 kun je nog volledig salderen. Daarna neemt het percentage jaarlijks af. Maar ook zonder saldering blijft zonne-energie de slimste keuze.
+            </p>
+          </div>
+          <div className="max-w-4xl mx-auto mb-12">
+            <div className="bg-white rounded-xl p-8 shadow-lg">
+              <h3 className="text-xl font-bold text-gray-900 mb-6">Afbouwschema Salderingsregeling</h3>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center pb-3 border-b border-gray-200">
+                  <span className="text-gray-700 font-medium">2025 - 2026</span>
+                  <span className="font-bold text-green-600">100% saldering</span>
+                </div>
+                <div className="flex justify-between items-center pb-3 border-b border-gray-200">
+                  <span className="text-gray-700 font-medium">2027</span>
+                  <span className="font-bold text-gray-900">90% saldering</span>
+                </div>
+                <div className="flex justify-between items-center pb-3 border-b border-gray-200">
+                  <span className="text-gray-700 font-medium">2028</span>
+                  <span className="font-bold text-gray-900">70% saldering</span>
+                </div>
+                <div className="flex justify-between items-center pb-3 border-b border-gray-200">
+                  <span className="text-gray-700 font-medium">2029</span>
+                  <span className="font-bold text-gray-900">50% saldering</span>
+                </div>
+                <div className="flex justify-between items-center pb-3 border-b border-gray-200">
+                  <span className="text-gray-700 font-medium">2030</span>
+                  <span className="font-bold text-gray-900">30% saldering</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-700 font-medium">2031 en verder</span>
+                  <span className="font-bold text-red-600">0% saldering</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -230,6 +309,56 @@ function BatteryContent() {
                       Laad en ontlaad tot 5kW continu. Genoeg voor de wasmachine.
                     </p>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Echt resultaat van onze klanten</h2>
+              <p className="text-xl text-gray-600">
+                Zo maken onze klanten optimaal gebruik van hun zonne-energie met een thuisbatterij.
+              </p>
+            </div>
+            <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl p-8 shadow-lg">
+              <div className="flex items-start gap-6">
+                <div className="bg-white rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0 shadow-md">
+                  <CheckCircle2 className="w-8 h-8 text-green-600" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Familie Van den Berg - Utrecht</h3>
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                      <p className="text-sm text-gray-600 mb-1">Installatie</p>
+                      <p className="text-gray-900 font-semibold">16 zonnepanelen + 10 kWh batterij</p>
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-600 mb-1">Woningtype</p>
+                      <p className="text-gray-900 font-semibold">Tussenwoning, 4 personen</p>
+                    </div>
+                  </div>
+                  <div className="bg-white rounded-xl p-6 space-y-4">
+                    <div className="flex items-center justify-between pb-4 border-b border-gray-200">
+                      <span className="text-gray-700">Direct eigen verbruik zonder batterij</span>
+                      <span className="font-bold text-orange-600">32%</span>
+                    </div>
+                    <div className="flex items-center justify-between pb-4 border-b border-gray-200">
+                      <span className="text-gray-700">Direct eigen verbruik met batterij</span>
+                      <span className="font-bold text-green-600">78%</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-700 font-semibold">Extra besparing per jaar</span>
+                      <span className="font-bold text-2xl text-[#aadd5f]">€ 520,-</span>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 italic mt-4">
+                    "We laden de batterij 's nachts op tegen de goedkope tarieven en gebruiken overdag onze eigen opgeslagen energie. De batterij heeft zichzelf al terugverdiend!"
+                  </p>
                 </div>
               </div>
             </div>
@@ -345,6 +474,67 @@ function HeatPumpContent() {
                 </div>
               </div>
               <p className="text-xs text-gray-500">*Indicatieve prijzen incl. installatie.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Klantcase: Van gas naar elektrisch</h2>
+              <p className="text-xl text-gray-600">
+                Ontdek hoe onze klanten besparen met een warmtepomp.
+              </p>
+            </div>
+            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-200">
+              <div className="flex items-start gap-6">
+                <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
+                  <ThermometerSun className="w-8 h-8 text-green-700" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Familie Jansen - Houten</h3>
+                  <p className="text-gray-600 mb-6">Tussenwoning uit 1985, redelijk geïsoleerd (spouwmuur + HR++ glas)</p>
+
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div className="bg-gray-50 rounded-xl p-4">
+                      <p className="text-sm text-gray-600 mb-2">Installatie</p>
+                      <p className="text-gray-900 font-bold">Hybride warmtepomp</p>
+                      <p className="text-sm text-gray-600 mt-1">Bestaande CV-ketel behouden als backup</p>
+                    </div>
+                    <div className="bg-gray-50 rounded-xl p-4">
+                      <p className="text-sm text-gray-600 mb-2">ISDE Subsidie ontvangen</p>
+                      <p className="text-green-600 font-bold text-xl">€ 2.700,-</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-blue-50 rounded-xl p-6 mb-6">
+                    <h4 className="font-bold text-gray-900 mb-4">Resultaten na 1 jaar</h4>
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center pb-3 border-b border-blue-200">
+                        <span className="text-gray-700">Gasverbruik voor warmtepomp</span>
+                        <span className="font-bold text-gray-900">1.800 m³ / jaar</span>
+                      </div>
+                      <div className="flex justify-between items-center pb-3 border-b border-blue-200">
+                        <span className="text-gray-700">Gasverbruik na warmtepomp</span>
+                        <span className="font-bold text-green-600">540 m³ / jaar</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-700 font-semibold">Besparing op gasrekening</span>
+                        <span className="font-bold text-2xl text-green-600">€ 1.450,- / jaar</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-4">
+                    <p className="text-gray-800 italic">
+                      "De warmtepomp draait het hele seizoen stil en efficiënt. Alleen op de koudste dagen springt de CV-ketel bij. We zijn blij dat we de stap hebben gezet – onze gasrekening is met 70% gedaald!"
+                    </p>
+                    <p className="text-gray-600 text-sm mt-2">— Mark Jansen, geïnstalleerd maart 2024</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
