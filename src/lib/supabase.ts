@@ -141,8 +141,7 @@ export async function getPublishedArticles(categorySlug?: string) {
   let query = supabase
     .from('blog_articles')
     .select('*, category:blog_categories(*)')
-    .eq('published', true)
-    .order('published_at', { ascending: false });
+    .eq('published', true);
 
   if (categorySlug) {
     const { data: category } = await supabase
@@ -156,7 +155,16 @@ export async function getPublishedArticles(categorySlug?: string) {
     }
   }
 
-  return await query;
+  // Always apply sorting at the end to ensure it works on all subpages
+  query = query.order('published_at', { ascending: false });
+
+  const result = await query;
+  
+  // Ensure data is always an array, even if null (prevents sorting errors on subpages)
+  return {
+    ...result,
+    data: result.data || []
+  };
 }
 
 export async function getArticleBySlug(slug: string) {
@@ -171,36 +179,60 @@ export async function getArticleBySlug(slug: string) {
 
 export async function getCategories() {
   if (!supabase) return { data: [], error: new Error('Supabase not configured') };
-  return await supabase.from('blog_categories').select('*').order('name');
+  const result = await supabase.from('blog_categories').select('*').order('name');
+  
+  // Ensure data is always an array, even if null (prevents sorting errors on subpages)
+  return {
+    ...result,
+    data: result.data || []
+  };
 }
 
 export async function getFeaturedTestimonials(limit = 6) {
   if (!supabase) return { data: [], error: new Error('Supabase not configured') };
-  return await supabase
+  const result = await supabase
     .from('testimonials')
     .select('*')
     .eq('verified', true)
     .eq('featured', true)
     .order('created_at', { ascending: false })
     .limit(limit);
+  
+  // Ensure data is always an array, even if null (prevents sorting errors on subpages)
+  return {
+    ...result,
+    data: result.data || []
+  };
 }
 
 export async function getPublishedCaseStudies() {
   if (!supabase) return { data: [], error: new Error('Supabase not configured') };
-  return await supabase
+  const result = await supabase
     .from('case_studies')
     .select('*')
     .eq('published', true)
     .order('created_at', { ascending: false });
+  
+  // Ensure data is always an array, even if null (prevents sorting errors on subpages)
+  return {
+    ...result,
+    data: result.data || []
+  };
 }
 
 export async function getActiveSubsidies() {
   if (!supabase) return { data: [], error: new Error('Supabase not configured') };
-  return await supabase
+  const result = await supabase
     .from('subsidies')
     .select('*')
     .eq('active', true)
     .order('created_at', { ascending: false });
+  
+  // Ensure data is always an array, even if null (prevents sorting errors on subpages)
+  return {
+    ...result,
+    data: result.data || []
+  };
 }
 
 export async function submitContactForm(contact: ContactSubmission) {
